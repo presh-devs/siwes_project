@@ -20,34 +20,31 @@ class MyHomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.watch(bottomNavbarProvider);
+   final currentScreen= ref.watch(bottomNavbarProvider);
 
     return SizedBox.expand(
       child: Scaffold(
-        body: Column(
+        body:  Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Expanded(
               child: ConnectionMonitor(
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      top: MediaQuery.sizeOf(context).height - 55),
-                  child: BottomNavigationBar(
-                    items: navBarItems,
-                    unselectedItemColor: Colors.black,
-                    selectedItemColor: Colors.red,
-                    currentIndex: ref.read(bottomNavbarProvider),
-                    onTap: (index) {
-                      ref.read(bottomNavbarProvider.notifier).gotoSection(
-                            index,
-                          );
-                    },
-                  ),
-                ),
+                child:navScreens[currentScreen] ,
               ),
             ),
           ],
         ),
+        bottomNavigationBar: BottomNavigationBar(
+                  items: navBarItems,
+                  unselectedItemColor: Colors.black,
+                  selectedItemColor: Colors.red,
+                  currentIndex: ref.read(bottomNavbarProvider),
+                  onTap: (index) {
+                    ref.read(bottomNavbarProvider.notifier).gotoSection(
+                          index,
+                        );
+                  },
+                ),
       ),
     );
   }
