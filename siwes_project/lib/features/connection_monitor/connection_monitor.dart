@@ -35,14 +35,17 @@ class ConnectionMonitor extends ConsumerWidget {
                       alignment: Alignment.topCenter,
                       heightFactor:
                           result != ConnectivityResult.none ? 0.0 : 1.0,
-                      child: Material(
-                        color: Colors.red,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 4.0) + const EdgeInsets.symmetric(horizontal: 12.0),
-                          child: const Text(
-                            'Please check your internet connection',
-                            style: TextStyle(color: Colors.white),
-                            textAlign: TextAlign.center,
+                      child: Visibility(
+                         visible:result != ConnectivityResult.none  ? false: true,
+                        child: Material(
+                          color: Colors.red,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 4.0) + const EdgeInsets.symmetric(horizontal: 12.0),
+                            child: const Text(
+                              'Please check your internet connection',
+                              style: TextStyle(color: Colors.white),
+                              textAlign: TextAlign.center,
+                            ),
                           ),
                         ),
                       ),

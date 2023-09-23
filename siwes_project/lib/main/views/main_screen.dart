@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:siwes_project/contstants/constants.dart';
 import 'package:siwes_project/features/connection_monitor/connection_monitor.dart';
 import 'package:siwes_project/main/providers.dart/bottom_nav_provider.dart';
 import 'package:siwes_project/models/nav_item.dart';
@@ -24,15 +25,18 @@ class MyHomePage extends ConsumerWidget {
 
     return SizedBox.expand(
       child: Scaffold(
-        body:  Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-              child: ConnectionMonitor(
-                child:navScreens[currentScreen] ,
+        body:  Padding(
+          padding: ProjectConstants.generalPadding,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                child: ConnectionMonitor(
+                  child:navScreens[currentScreen] ,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         bottomNavigationBar: BottomNavigationBar(
                   items: navBarItems,
