@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:siwes_project/common_widgets/bottom_sheet.dart';
+import 'package:siwes_project/main/views/main_screen.dart';
 
 class SetNewPassword extends StatefulWidget {
   const SetNewPassword({Key? key}) : super(key: key);
@@ -8,7 +10,6 @@ class SetNewPassword extends StatefulWidget {
 }
 
 class _SetNewPasswordState extends State<SetNewPassword> {
-
   // Form key
   final _formKey = GlobalKey<FormState>();
 
@@ -43,12 +44,10 @@ class _SetNewPasswordState extends State<SetNewPassword> {
         child: SizedBox(
           height: MediaQuery.of(context).size.height,
           width: double.infinity,
-
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Expanded(
-
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -59,7 +58,6 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                         child: const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-
                             Text(
                               'Set new',
                               style: TextStyle(
@@ -67,7 +65,6 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-
                             Text(
                               'password',
                               style: TextStyle(
@@ -75,20 +72,15 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-
-                            SizedBox(
-                                height: 60),
-
+                            SizedBox(height: 60),
                           ],
                         ),
                       ),
                     ),
-
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 40),
                       child: Column(
                         children: <Widget>[
-
                           //password field
                           TextFormField(
                             autofocus: false,
@@ -109,8 +101,8 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                             },
                             textInputAction: TextInputAction.done,
                             decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.fromLTRB(
-                                  20, 10, 20, 10),
+                              contentPadding:
+                                  const EdgeInsets.fromLTRB(20, 10, 20, 10),
                               hintText: "Enter new password",
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
@@ -127,7 +119,8 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                             controller: _confirmnewpassword,
                             obscureText: true,
                             validator: (value) {
-                              if (_confirmnewpassword.text != _newpassword.text) {
+                              if (_confirmnewpassword.text !=
+                                  _newpassword.text) {
                                 return "Passwords do not match";
                               }
                               return null;
@@ -138,7 +131,7 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                             textInputAction: TextInputAction.done,
                             decoration: InputDecoration(
                               contentPadding:
-                              const EdgeInsets.fromLTRB(20, 15, 20, 15),
+                                  const EdgeInsets.fromLTRB(20, 15, 20, 15),
                               hintText: "Confirm new password",
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
@@ -148,7 +141,6 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                         ],
                       ),
                     ),
-
                     Padding(
                       padding: const EdgeInsets.fromLTRB(40.0, 24.0, 40.0, 0.0),
                       child: Container(
@@ -162,7 +154,6 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                             right: BorderSide(color: Colors.black),
                           ),
                         ),
-
                         child: MaterialButton(
                           minWidth: double.infinity,
                           height: 40,
@@ -171,11 +162,19 @@ class _SetNewPasswordState extends State<SetNewPassword> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
-
                           onPressed: () {
-                            _formKey.currentState!.validate();
-                          },
+                            // _formKey.currentState!.validate();
 
+                            shoWSuccessBottomSheet(
+                              context: context,
+                              title: 'Successful',
+                              buttonText: 'Click to continue',
+                              onPressed: () => Navigator.of(context)
+                                  .pushReplacement(MaterialPageRoute(
+                                      builder: (context) =>
+                                          const MyHomePage())),
+                            );
+                          },
                           child: const Text(
                             'Set',
                             style: TextStyle(

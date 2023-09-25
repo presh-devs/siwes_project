@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:siwes_project/main/views/signin_screen.dart';
+import 'package:siwes_project/common_widgets/bottom_sheet.dart';
+import 'package:siwes_project/features/authenticate/views/signin_screen.dart';
+import 'package:siwes_project/main/views/main_screen.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -9,7 +11,6 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-
   // Form key
   final _formKey = GlobalKey<FormState>();
 
@@ -41,17 +42,13 @@ class _SignUpState extends State<SignUp> {
       body: Form(
         key: _formKey,
         child: SizedBox(
-
           height: MediaQuery.of(context).size.height,
           width: double.infinity,
           child: Column(
-
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-
               Expanded(
                 child: Column(
-
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     const Column(
@@ -64,19 +61,13 @@ class _SignUpState extends State<SignUp> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-
-                        SizedBox(
-                            height: 60
-                        ),
-
+                        SizedBox(height: 60),
                       ],
                     ),
-
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 40),
                       child: Column(
                         children: <Widget>[
-
                           //Email field
                           TextFormField(
                             autofocus: false,
@@ -88,7 +79,7 @@ class _SignUpState extends State<SignUp> {
                               }
                               // reg expression for email validation
                               if (!RegExp(
-                                  "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                                      "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
                                   .hasMatch(value)) {
                                 return ("Please enter a valid Email");
                               }
@@ -99,8 +90,8 @@ class _SignUpState extends State<SignUp> {
                             },
                             textInputAction: TextInputAction.next,
                             decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.fromLTRB(
-                                  20, 10, 20, 10),
+                              contentPadding:
+                                  const EdgeInsets.fromLTRB(20, 10, 20, 10),
                               hintText: "Email Address",
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
@@ -132,8 +123,8 @@ class _SignUpState extends State<SignUp> {
                             },
                             textInputAction: TextInputAction.done,
                             decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.fromLTRB(
-                                  20, 10, 20, 10),
+                              contentPadding:
+                                  const EdgeInsets.fromLTRB(20, 10, 20, 10),
                               hintText: "Password",
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
@@ -143,7 +134,6 @@ class _SignUpState extends State<SignUp> {
                         ],
                       ),
                     ),
-
                     Padding(
                       padding: const EdgeInsets.fromLTRB(40.0, 24.0, 40.0, 0.0),
                       child: Container(
@@ -157,7 +147,6 @@ class _SignUpState extends State<SignUp> {
                             right: BorderSide(color: Colors.black),
                           ),
                         ),
-
                         child: MaterialButton(
                           minWidth: double.infinity,
                           height: 40,
@@ -166,11 +155,20 @@ class _SignUpState extends State<SignUp> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
-
                           onPressed: () {
-                            _formKey.currentState!.validate();
+                            // Deactivated to test sign up success bottom sheet
+                            //_formKey.currentState!.validate();
+                            shoWSuccessBottomSheet(
+                              context: context,
+                              title: 'Welcome',
+                              contextText: 'Your sign up was successful',
+                              buttonText: 'Click to home',
+                              onPressed: () => Navigator.of(context)
+                                  .pushReplacement(MaterialPageRoute(
+                                      builder: (context) =>
+                                          const MyHomePage())),
+                            );
                           },
-
                           child: const Text(
                             'Sign up',
                             style: TextStyle(
@@ -181,7 +179,6 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                     ),
-
                     Padding(
                       padding: const EdgeInsets.fromLTRB(40.0, 24.0, 40.0, 0.0),
                       child: Container(
@@ -195,18 +192,15 @@ class _SignUpState extends State<SignUp> {
                             right: BorderSide(color: Colors.black),
                           ),
                         ),
-
                         child: MaterialButton(
                           minWidth: double.infinity,
                           height: 40,
-                          color: Color(0xffFF3333),
+                          color: const Color(0xffFF3333),
                           elevation: 5,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
-
                           onPressed: () {},
-
                           child: const Text(
                             'Continue with Google',
                             style: TextStyle(
@@ -217,7 +211,6 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                     ),
-
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -225,7 +218,6 @@ class _SignUpState extends State<SignUp> {
                           'Already have an account?',
                           style: TextStyle(),
                         ),
-
                         TextButton(
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(

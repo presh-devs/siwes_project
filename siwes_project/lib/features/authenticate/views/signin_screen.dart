@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:siwes_project/main/views/forgotpassword_screen.dart';
-import 'package:siwes_project/main/views/signup_screen.dart';
+import 'package:siwes_project/features/authenticate/views/signup_screen.dart';
+import 'package:siwes_project/features/password/views/forgotpassword_screen.dart';
+import 'package:siwes_project/main/views/main_screen.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -170,7 +171,9 @@ class _SignInState extends State<SignIn> {
                           ),
 
                           onPressed: () {
-                             _formKey.currentState!.validate();
+                            // Deactivated for now so we can naviagate to home screen
+                            // _formKey.currentState!.validate();
+                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> const MyHomePage()));
                           },
 
                           child: const Text(
@@ -242,7 +245,7 @@ class _SignInState extends State<SignIn> {
                         child: MaterialButton(
                           minWidth: double.infinity,
                           height: 40,
-                          color: Color(0xffFF3333),
+                          color: const Color(0xffFF3333),
                           elevation: 5,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),

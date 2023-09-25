@@ -7,7 +7,7 @@ class SearchPage  extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return   Scaffold(
-      appBar: AppBar(title:const Text('Search'),),
+      appBar: AppBar(title:const Text('Search'),automaticallyImplyLeading: false,),
     );
   }
 }

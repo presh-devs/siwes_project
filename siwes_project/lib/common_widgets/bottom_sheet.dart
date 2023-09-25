@@ -9,9 +9,12 @@ Future shoWSuccessBottomSheet(
     {required BuildContext context,
     required String title,
     required String buttonText,
+    bool isDismissible = false,
+    required VoidCallback onPressed,
     String? contextText}) {
   return showModalBottomSheet(
       isScrollControlled: false,
+      isDismissible: isDismissible,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.0),
       ),
@@ -58,9 +61,7 @@ Future shoWSuccessBottomSheet(
                           color: Colors.white),
                     ),
               TextButton(
-                  onPressed: () {
-                    // print('Home');
-                  },
+                  onPressed:onPressed,
                   child: Text(
                     buttonText,
                     style: GoogleFonts.georama(

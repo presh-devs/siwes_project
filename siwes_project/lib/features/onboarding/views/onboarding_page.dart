@@ -3,10 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:siwes_project/common_widgets/app_button.dart';
-import 'package:siwes_project/common_widgets/bottom_sheet.dart';
 import 'package:siwes_project/contstants/colors.dart';
 
 import 'package:siwes_project/contstants/constants.dart';
+import 'package:siwes_project/features/authenticate/views/signup_screen.dart';
 
 import 'package:siwes_project/features/onboarding/domain/onboarding_model.dart';
 import 'package:siwes_project/features/onboarding/provider/onboarding_provider.dart';
@@ -95,10 +95,22 @@ class _State extends ConsumerState<OnboardingPage> {
                   if (currentPage < 2) {
                     ref.read(pageProvider.notifier).changePage();
                   }
+                  if (currentPage == 2) {
+                    ref
+                        .read(onboardingRepositoryProvider)
+                        .setOnboardingComplete(true);
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => const SignUp()));
+                  }
                   // Navigate to sign up screen
                 }),
             TextButton(
               onPressed: () {
+                ref
+                    .read(onboardingRepositoryProvider)
+                    .setOnboardingComplete(true);
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => const SignUp()));
               },
               child: const Text(
                 'Skip and continue',

@@ -7,7 +7,7 @@ class NotificationPage  extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return   Scaffold(
-      appBar: AppBar(title:const Text('Notifications'),),
+      appBar: AppBar(title:const Text('Notifications'),automaticallyImplyLeading: false,),
     );
   }
 }

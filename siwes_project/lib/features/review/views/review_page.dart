@@ -7,7 +7,7 @@ class ReviewPage  extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return  Scaffold(
-      appBar: AppBar(title:const Text('Review'),),
+      appBar: AppBar(title:const Text('Review'), automaticallyImplyLeading: false,),
     );
   }
 }

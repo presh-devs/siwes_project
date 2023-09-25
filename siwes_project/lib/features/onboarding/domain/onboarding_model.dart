@@ -1,3 +1,4 @@
+
 import 'package:siwes_project/contstants/strings.dart';
 
 class OnBoardItem {
