@@ -6,4 +6,5 @@ class ProjectColors{
   // The colors can be accessed by calling ProjectColor.<name of color>
 
   static const Color primaryColor =  Color(0xFF0D0C5D);
+ static const Color primaryGreen =  Color(0xFF99E79B);
  }

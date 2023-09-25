@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:siwes_project/contstants/theme.dart';
+import 'package:siwes_project/features/onboarding/views/onboarding_page.dart';
 import 'package:siwes_project/main/views/main_screen.dart';
 import 'package:siwes_project/main/views/signin_screen.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ProjectTheme.materialTheme(context),
       debugShowCheckedModeBanner: false,
-      home: const SignIn(), //You can change it back when you're done
+      home: const OnboardingPage(),
     );
   }
 }
