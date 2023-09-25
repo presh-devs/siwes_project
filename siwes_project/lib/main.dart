@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:siwes_project/contstants/theme.dart';
 import 'package:siwes_project/features/onboarding/views/onboarding_page.dart';
 import 'package:siwes_project/main/views/main_screen.dart';
+import 'package:siwes_project/main/views/signin_screen.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
