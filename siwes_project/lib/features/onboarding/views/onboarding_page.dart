@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:siwes_project/common_widgets/app_button.dart';
+import 'package:siwes_project/common_widgets/bottom_sheet.dart';
 import 'package:siwes_project/contstants/colors.dart';
 
 import 'package:siwes_project/contstants/constants.dart';
@@ -81,8 +82,11 @@ class _State extends ConsumerState<OnboardingPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Next',style: TextStyle(fontSize: 14, fontWeight: 
-                      FontWeight.w700),),
+                      Text(
+                        'Next',
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w700),
+                      ),
                       Icon(Icons.arrow_forward),
                     ],
                   ),
@@ -94,7 +98,8 @@ class _State extends ConsumerState<OnboardingPage> {
                   // Navigate to sign up screen
                 }),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+              },
               child: const Text(
                 'Skip and continue',
               ),

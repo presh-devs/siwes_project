@@ -21,7 +21,6 @@ dependencies:
   flutter_riverpod: ^2.3.7
   flutter_svg: ^2.0.7
   connectivity_plus: ^4.0.2
-  neubrutalism_ui: ^1.0.0
   google_fonts: ^6.1.0
   smooth_page_indicator: ^1.1.0
 
