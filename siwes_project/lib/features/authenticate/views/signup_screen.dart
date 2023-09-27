@@ -38,7 +38,7 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(), //Also left blank on purpose for now
+     // appBar: AppBar(), //Also left blank on purpose for now
       body: Form(
         key: _formKey,
         child: SizedBox(

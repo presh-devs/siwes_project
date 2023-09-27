@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:siwes_project/features/password/views/otp_screen.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({Key? key}) : super(key: key);
@@ -157,8 +158,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           onPressed: () {
 
                             _formKey.currentState!.validate();
-                           // Navigator.of(context).push(MaterialPageRoute(
-                              //  builder: (context) => const SetNewPassword()));
+                           Navigator.of(context).push(MaterialPageRoute(
+                               builder: (context) => const OtpScreen()));
 
 
                             //You can uncomment that to see the screen for now before linking it

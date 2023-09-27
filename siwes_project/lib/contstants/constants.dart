@@ -9,4 +9,5 @@ class ProjectConstants {
 
   static const EdgeInsets generalPadding = EdgeInsets.all(24);
   static const SizedBox largeSpacing = SizedBox(height: 24);
+   static const SizedBox regSpacing = SizedBox(height: 16);
 }

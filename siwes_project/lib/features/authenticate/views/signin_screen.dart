@@ -39,7 +39,7 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(), //Purposely left blank for now
+      //appBar: AppBar(), //Purposely left blank for now
       body: Form(
         key: _formKey,
         child: SizedBox(

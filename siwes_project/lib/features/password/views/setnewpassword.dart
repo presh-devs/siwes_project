@@ -38,7 +38,8 @@ class _SetNewPasswordState extends State<SetNewPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(),
+      // Appbar is not needed as there shouldn't be a back button on this screen
+     // appBar: AppBar(),
       body: Form(
         key: _formKey,
         child: SizedBox(
