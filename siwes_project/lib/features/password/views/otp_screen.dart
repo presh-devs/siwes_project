@@ -1,10 +1,10 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:neumorphic_ui/neumorphic_ui.dart';
 import 'package:siwes_project/common_widgets/app_button.dart';
+import 'package:siwes_project/common_widgets/otp_field.dart';
 import 'package:siwes_project/contstants/constants.dart';
 import 'package:siwes_project/features/password/provider/otp_provider.dart';
 import 'package:siwes_project/features/password/views/setnewpassword.dart';
@@ -55,8 +55,11 @@ class _State extends ConsumerState<OtpScreen> {
                   fontSize: 14, fontWeight: FontWeight.w400),
             ),
             ProjectConstants.regSpacing,
-            OtpTextField(
-              showFieldAsBox: true,
+           
+            OtpField(
+              numberOfFields: 4,
+             // showFieldAsBox: true,
+              
             ),
             ProjectConstants.regSpacing,
             Text('00:${count.inSeconds} sec'),
@@ -83,8 +86,9 @@ class _State extends ConsumerState<OtpScreen> {
             ),
             ProjectConstants.regSpacing,
             AppButton(
-              onPressed: () =>  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                               builder: (context) => const SetNewPassword())),
+              onPressed: () => Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                      builder: (context) => const SetNewPassword())),
               child: const Text('Proceed'),
             ),
           ],
