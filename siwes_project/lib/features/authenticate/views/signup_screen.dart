@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:siwes_project/common_widgets/bottom_sheet.dart';
+import 'package:siwes_project/features/authenticate/data/auth_repository.dart';
 import 'package:siwes_project/features/authenticate/views/signin_screen.dart';
 import 'package:siwes_project/main/views/main_screen.dart';
 
-class SignUp extends StatefulWidget {
+class SignUp extends ConsumerStatefulWidget {
   const SignUp({Key? key}) : super(key: key);
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  ConsumerState<SignUp> createState() => _SignUpState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUpState extends ConsumerState<SignUp> {
   // Form key
   final _formKey = GlobalKey<FormState>();
 
@@ -38,7 +40,7 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-     // appBar: AppBar(), //Also left blank on purpose for now
+      // appBar: AppBar(), //Also left blank on purpose for now
       body: Form(
         key: _formKey,
         child: SizedBox(
@@ -155,19 +157,24 @@ class _SignUpState extends State<SignUp> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          onPressed: () {
+                          onPressed: () async {
                             // Deactivated to test sign up success bottom sheet
-                            //_formKey.currentState!.validate();
-                            shoWSuccessBottomSheet(
-                              context: context,
-                              title: 'Welcome',
-                              contextText: 'Your sign up was successful',
-                              buttonText: 'Click to home',
-                              onPressed: () => Navigator.of(context)
-                                  .pushReplacement(MaterialPageRoute(
-                                      builder: (context) =>
-                                          const MyHomePage())),
-                            );
+                            _formKey.currentState!.validate();
+                            await ref.read(authRepoProvider).userSignUp(
+                                firstName: '',
+                                lastName: 'lastName',
+                                email: _email.text,
+                                password: _password.text);
+                            // shoWSuccessBottomSheet(
+                            //   context: context,
+                            //   title: 'Welcome',
+                            //   contextText: 'Your sign up was successful',
+                            //   buttonText: 'Click to home',
+                            //   onPressed: () => Navigator.of(context)
+                            //       .pushReplacement(MaterialPageRoute(
+                            //           builder: (context) =>
+                            //               const MyHomePage())),
+                            // );
                           },
                           child: const Text(
                             'Sign up',
